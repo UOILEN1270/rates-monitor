@@ -1,0 +1,67 @@
+name: Fetch Rates & FX Data
+
+on:
+  schedule:
+    - cron: '0 1,13 * * *'   # UTC 01:00 / 13:00 → CST 09:00 / 21:00
+  workflow_dispatch:          # manual trigger
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/fetch_data.py'
+      - '.github/workflows/fetch-data.yml'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  fetch-data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Fetch data
+        run: python scripts/fetch_data.py
+        env:
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "rates-monitor-bot"
+          git config user.email "bot@rates-monitor"
+          git add data/
+          if git diff --cached --quiet; then
+            echo "No data changes"
+          else
+            git commit -m "auto: update rates data [$(date -u '+%Y-%m-%d %H:%M UTC')]"
+            git push
+          fi
+
+  deploy-pages:
+    needs: fetch-data
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4

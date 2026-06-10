@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Global Rates & FX Monitor</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+<style>
+:root {
+  --bg: #f5f6f8;
+  --card: #ffffff;
+  --text: #1a1a2e;
+  --text2: #555770;
+  --text3: #8e90a6;
+  --border: #e4e5ec;
+  --accent: #2b5cfa;
+  --accent-light: #eef2ff;
+  --green: #0ca56a;
+  --green-bg: #e6f7ef;
+  --red: #e5454a;
+  --red-bg: #fde8e8;
+  --warning: #f5a623;
+  --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --radius: 10px;
+  --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Helvetica Neue', sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--font); background: var(--bg); color: var(--text); font-size: 14px; line-height: 1.5; padding: 20px; }
+.header { max-width: 1400px; margin: 0 auto 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+.header h1 { font-size: 22px; font-weight: 700; }
+.header .subtitle { color: var(--text2); font-size: 13px; }
+.header .meta { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+.header .update-time { color: var(--text3); font-size: 12px; }
+.alert-badge { display: inline-flex; align-items: center; gap: 4px; background: var(--red-bg); color: var(--red); padding: 3px 10px; border-radius: 12px; font-size: 12px; font-weight: 600; cursor: pointer; }
+.card { background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); padding: 16px 20px; margin-bottom: 16px; }
+.card-title { font-size: 13px; font-weight: 600; color: var(--text2); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; }
+.card-title .badge { font-size: 11px; background: var(--accent-light); color: var(--accent); padding: 2px 8px; border-radius: 6px; font-weight: 500; text-transform: none; letter-spacing: 0; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.fx-table { width: 100%; border-collapse: collapse; }
+.fx-table th { text-align: left; padding: 6px 10px; font-size: 11px; font-weight: 600; color: var(--text3); border-bottom: 1px solid var(--border); white-space: nowrap; }
+.fx-table td { padding: 7px 10px; border-bottom: 1px solid var(--border); cursor: pointer; transition: background 0.15s; }
+.fx-table tr:hover td { background: #f8f9ff; }
+.fx-table td:first-child { font-weight: 600; font-size: 13px; }
+.fx-table .currency-name { color: var(--text3); font-size: 11px; font-weight: 400; }
+.fx-table .rate { font-variant-numeric: tabular-nums; font-size: 14px; font-weight: 500; }
+.fx-table .change { font-size: 12px; font-weight: 500; white-space: nowrap; }
+.up { color: var(--green); }
+.down { color: var(--red); }
+.neutral { color: var(--text3); }
+.rate-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 8px; }
+.rate-item { padding: 10px 12px; border-radius: 8px; background: var(--bg); cursor: pointer; transition: all 0.15s; border: 1px solid transparent; }
+.rate-item:hover { border-color: var(--accent); background: var(--accent-light); }
+.rate-item .value { font-size: 18px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.rate-item .label { font-size: 12px; color: var(--text2); margin-top: 2px; }
+.rate-item .economy { font-size: 10px; color: var(--text3); }
+.rate-item.policy .value { color: var(--accent); }
+.rate-item.bond .value { color: #6b47d3; }
+.rate-item .spread-value { font-size: 24px; font-weight: 700; }
+.rate-item .spread-label { font-size: 11px; color: var(--text2); }
+.alerts-list { list-style: none; }
+.alerts-list li { padding: 6px 0; font-size: 13px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid var(--border); }
+.alerts-list li:last-child { border-bottom: none; }
+.alerts-list .icon-warn { color: var(--warning); }
+.alerts-list .icon-info { color: var(--accent); }
+.modal-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 1000; justify-content: center; align-items: center; backdrop-filter: blur(2px); }
+.modal-overlay.active { display: flex; }
+.modal { background: var(--card); border-radius: var(--radius); box-shadow: 0 20px 60px rgba(0,0,0,0.2); width: 90%; max-width: 800px; max-height: 85vh; display: flex; flex-direction: column; animation: modalIn 0.2s ease; }
+@keyframes modalIn { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+.modal-header { padding: 16px 20px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+.modal-header h2 { font-size: 16px; font-weight: 600; }
+.modal-close { background: none; border: none; font-size: 20px; cursor: pointer; color: var(--text3); padding: 4px; line-height: 1; }
+.modal-close:hover { color: var(--text); }
+.modal-body { padding: 20px; overflow-y: auto; flex: 1; }
+.modal-stats { display: flex; gap: 24px; margin-bottom: 16px; }
+.modal-stat { text-align: center; }
+.modal-stat .val { font-size: 20px; font-weight: 700; }
+.modal-stat .lbl { font-size: 11px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.5px; }
+.chart-container { position: relative; height: 380px; }
+.range-selector { display: flex; gap: 6px; margin-bottom: 12px; }
+.range-btn { padding: 4px 12px; border-radius: 6px; border: 1px solid var(--border); background: var(--card); font-size: 12px; cursor: pointer; color: var(--text2); transition: all 0.15s; }
+.range-btn:hover { border-color: var(--accent); color: var(--accent); }
+.range-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+.container { max-width: 1400px; margin: 0 auto; }
+.empty-state { text-align: center; padding: 40px; color: var(--text3); }
+.empty-state h3 { font-size: 18px; margin-bottom: 8px; color: var(--text2); }
+.footer { text-align: center; padding: 20px; color: var(--text3); font-size: 11px; }
+@media (max-width: 900px) { .grid-2 { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <div>
+      <h1>Global Rates &amp; FX Monitor</h1>
+      <div class="subtitle">全球汇率 &amp; 利率监控看板</div>
+    </div>
+    <div class="meta">
+      <span class="update-time" id="updateTime">加载中…</span>
+      <span class="alert-badge" id="alertBadge" style="display:none" onclick="scrollToAlerts()">⚠ <span id="alertCount">0</span></span>
+    </div>
+  </div>
+
+  <!-- CNY USD/CNY Spotlight -->
+  <div class="card" id="cnySpotlight" style="padding:12px 20px;margin-bottom:12px;cursor:pointer" onclick="openFXChart('CNY')">
+    <div class="card-title" style="margin-bottom:4px">
+      <span>🇨🇳 人民币对美元 USD/CNY <span style="font-weight:400;color:var(--text3);font-size:12px;text-transform:none">点击查看历史走势</span></span>
+      <span class="badge" id="cnyDateBadge">—</span>
+    </div>
+    <div style="display:flex;align-items:baseline;gap:20px;flex-wrap:wrap">
+      <div><span id="cnyRate" style="font-size:28px;font-weight:700;font-variant-numeric:tabular-nums">—</span> <span style="color:var(--text3);font-size:13px">CNY per USD</span></div>
+      <div id="cnyCh1d" style="font-size:14px;font-weight:500">—</div>
+      <div id="cnyCh7d" style="font-size:14px;font-weight:500">—</div>
+      <div id="cnyCh1m" style="font-size:14px;font-weight:500">—</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">
+      <span>汇率 FX Rates <span style="font-weight:400;color:var(--text3);font-size:12px;text-transform:none">（点击查看历史走势）</span></span>
+      <span class="badge" id="fxDateBadge">—</span>
+    </div>
+    <div style="overflow-x:auto">
+      <table class="fx-table" id="fxTable">
+        <thead>
+          <tr>
+            <th>货币</th>
+            <th style="text-align:right">对 USD</th>
+            <th style="text-align:right">日变动</th>
+            <th style="text-align:right">7日变动</th>
+            <th style="text-align:right">1月变动</th>
+          </tr>
+        </thead>
+        <tbody id="fxBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">
+        <span>政策利率 Policy Rates</span>
+        <span class="badge" id="rateDateBadge">—</span>
+      </div>
+      <div class="rate-grid" id="policyGrid"></div>
+    </div>
+    <div class="card">
+      <div class="card-title">
+        <span>债券收益率 Bond Yields</span>
+        <span class="badge">%</span>
+      </div>
+      <div class="rate-grid" id="bondGrid"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">
+      <span>衍生指标 Indicators</span>
+      <span class="badge">Spread/Bps</span>
+    </div>
+    <div class="rate-grid" id="indicatorsGrid"></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">
+      <span>📊 市场指标 Market Indicators</span>
+      <span class="badge">FRED</span>
+    </div>
+    <div class="rate-grid" id="marketGrid"></div>
+  </div>
+
+  <div class="card" id="alertsCard">
+    <div class="card-title">
+      <span>⚠ 变动预警 Alerts</span>
+      <span class="badge" id="alertCountBadge">0</span>
+    </div>
+    <ul class="alerts-list" id="alertsList">
+      <li style="color:var(--text3)">暂无预警</li>
+    </ul>
+  </div>
+
+  <div class="footer">
+    <span>数据来源：Frankfurter API (ECB) · US Treasury · FRED</span>
+    <span style="margin:0 8px">·</span>
+    <span>点击任一数据点查看 12-24 个月历史走势</span>
+    <br>
+    <span id="footerMeta"></span>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <div class="modal-header">
+      <h2 id="modalTitle">—</h2>
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="range-selector" id="rangeSelector">
+        <button class="range-btn" data-months="1">1M</button>
+        <button class="range-btn" data-months="3">3M</button>
+        <button class="range-btn" data-months="6">6M</button>
+        <button class="range-btn active" data-months="12">12M</button>
+        <button class="range-btn" data-months="24">24M</button>
+      </div>
+      <div class="modal-stats" id="modalStats"></div>
+      <div class="chart-container">
+        <canvas id="historyChart"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+let snapshot = null;
+let historyData = null;
+let chartInstance = null;
+let chartType = null;
+let chartSeriesId = null;
+let chartData = [];
+
+const CURRENCY_NAMES = {
+  USD:'美元', EUR:'欧元', JPY:'日元', GBP:'英镑', CHF:'瑞郎',
+  AUD:'澳元', CAD:'加元', NZD:'纽元', KRW:'韩元', INR:'卢比',
+  SGD:'新元', HKD:'港币', TWD:'台币', BRL:'雷亚尔', MXN:'比索', RUB:'卢布', CNY:'人民币'
+};
+const CURRENCY_FLAGS = {
+  USD:'🇺🇸', EUR:'🇪🇺', JPY:'🇯🇵', GBP:'🇬🇧', CHF:'🇨🇭',
+  AUD:'🇦🇺', CAD:'🇨🇦', NZD:'🇳🇿', KRW:'🇰🇷', INR:'🇮🇳',
+  SGD:'🇸🇬', HKD:'🇭🇰', TWD:'🇹🇼', BRL:'🇧🇷', MXN:'🇲🇽', RUB:'🇷🇺', CNY:'🇨🇳'
+};
+const RATE_LABELS = {
+  fed_funds:'Fed Funds', ecb_refi:'ECB Refi', boj_rate:'BOJ', boe_rate:'BOE',
+  rba_rate:'RBA', boc_rate:'BOC', snb_rate:'SNB', rbi_rate:'RBI', bok_rate:'BOK',
+  china_lpr1y:'LPR 1Y', china_lpr5y:'LPR 5Y',
+  us_2y:'US 2Y', us_5y:'US 5Y', us_10y:'US 10Y', us_30y:'US 30Y',
+  cn_2y:'CN 2Y', cn_10y:'CN 10Y', de_10y:'DE 10Y', jp_10y:'JP 10Y',
+  vix:'VIX', us_10y_breakeven:'US 10Y Breakeven', us_5y_breakeven:'US 5Y Breakeven', em_bond_index:'EM Bond Index'
+};
+
+var INDICATOR_DESCS = {
+  us_2s10s: '美国 2年期与10年期国债收益率利差（bps）。正利差=曲线正常向上倾斜；利差收窄或倒挂（负值）通常预示衰退风险上升，历史上2s10s倒挂后12-24个月常伴随经济衰退。',
+  cn_us_10y: '中国10年期国债与美国10年期国债收益率之差（bps）。正值=中国利率更高，吸引外资流入；负值=中国利率更低，反映货币政策周期差异。该利差影响跨境资本流动和人民币汇率预期。'
+};
+var MARKET_DESCS = {
+  vix: 'VIX波动率指数，衡量标普500期权隐含的30天预期波动率。也叫"恐慌指数"。<10=市场极度乐观，20-30=不确定性上升，>30=恐慌/危机模式，>40=极端压力（2008=80，2020=82）。',
+  us_10y_breakeven: '美国10年期盈亏平衡通胀率（TIPS收益率与名义国债收益率之差）。市场预期的未来10年平均通胀率。约2.0%=美联储目标水平，>2.5%=通胀担忧，<1.5%=通缩风险。',
+  us_5y_breakeven: '美国5年期盈亏平衡通胀率。比10Y更敏感于短期通胀预期变化，常用于监测美联储政策的市场反应。',
+  em_bond_index: '美银美林新兴市场债券总回报指数。上涨=资金流入EM债市（风险偏好上升），下跌=资金撤离（避险情绪）。与VIX通常反向运动。'
+};
+
+function showInfo(id) {
+  var desc = INDICATOR_DESCS[id] || MARKET_DESCS[id];
+  if (!desc) return;
+  var el = document.createElement('div');
+  el.id = 'infoTip';
+  el.innerHTML = '<span style="float:right;cursor:pointer;font-size:18px;margin-left:12px" onclick="this.parentElement.remove()">&times;</span>' + desc;
+  el.style.cssText = 'position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1a1a2e;color:#fff;padding:16px 20px;border-radius:10px;font-size:13px;line-height:1.6;max-width:500px;z-index:2000;box-shadow:0 4px 20px rgba(0,0,0,0.3);text-align:left';
+  document.body.appendChild(el);
+  setTimeout(function() {
+    function handler(e) { if (!el.contains(e.target)) { el.remove(); document.removeEventListener('click', handler); } }
+    document.addEventListener('click', handler);
+  }, 100);
+}
+const RATE_ECONOMIES = {
+  fed_funds:'US', ecb_refi:'EU', boj_rate:'JP', boe_rate:'UK',
+  rba_rate:'AU', boc_rate:'CA', snb_rate:'CH', rbi_rate:'IN', bok_rate:'KR',
+  china_lpr1y:'CN', china_lpr5y:'CN',
+  us_2y:'US', us_5y:'US', us_10y:'US', us_30y:'US',
+  cn_2y:'CN', cn_10y:'CN', de_10y:'DE', jp_10y:'JP'
+};
+
+function formatDate(d) {
+  if (!d) return '—';
+  return new Date(d).toLocaleDateString('zh-CN', { year:'numeric', month:'2-digit', day:'2-digit' });
+}
+function fmt(n, d) { return n !== null && n !== undefined ? n.toFixed(d || 4) : '—'; }
+
+async function init() {
+  try {
+    const [sr, hr] = await Promise.all([
+      fetch('data/snapshot.json'), fetch('data/history.json')
+    ]);
+    snapshot = await sr.json();
+    historyData = await hr.json();
+  } catch(e) {
+    document.body.innerHTML = '<div class="empty-state"><h3>⚠ 数据加载失败</h3><p>运行 <code>cd /mnt/c/Users/abee/Documents/棒棒的远程仓库/工作/行业研究/rates-monitor && python3 -m http.server 8080</code> 后在浏览器打开 http://localhost:8080</p></div>';
+    return;
+  }
+  renderHeader();
+  renderCNYSpotlight();
+  renderFX();
+  renderPolicyRates();
+  renderBondYields();
+  renderIndicators();
+  renderMarketIndicators();
+  renderAlerts();
+  renderFooter();
+  setupRangeSelector();
+}
+
+function renderHeader() {
+  const updated = snapshot.meta?.updated;
+  document.getElementById('updateTime').textContent = updated ? '更新于 ' + new Date(updated).toLocaleString('zh-CN') : '无数据';
+  document.getElementById('fxDateBadge').textContent = snapshot.fx?.date ? formatDate(snapshot.fx.date) : '—';
+  document.getElementById('rateDateBadge').textContent = snapshot.rates?.date ? formatDate(snapshot.rates.date) : '—';
+  const alerts = snapshot.alerts || [];
+  if (alerts.length > 0) {
+    document.getElementById('alertBadge').style.display = 'inline-flex';
+    document.getElementById('alertCount').textContent = alerts.length;
+  }
+}
+
+function renderCNYSpotlight() {
+  const usdRates = snapshot.fx?.rates?.usd || {};
+  const cnyRate = usdRates.CNY;
+  if (!cnyRate) return;
+  document.getElementById('cnyRate').textContent = cnyRate.toFixed(4);
+  document.getElementById('cnyDateBadge').textContent = snapshot.fx?.date ? formatDate(snapshot.fx.date) : '—';
+  var ch1d = snapshot.fx?.change_1d?.CNY;
+  var ch7d = snapshot.fx?.change_7d?.CNY;
+  var ch1m = snapshot.fx?.change_1m?.CNY;
+  function setCh(el, v) {
+    if (v === null || v === undefined) { document.getElementById(el).textContent = '—'; return; }
+    var cls = v > 0 ? 'up' : v < 0 ? 'down' : 'neutral';
+    var sign = v > 0 ? '+' : '';
+    document.getElementById(el).innerHTML = '<span class="' + cls + '">' + sign + v.toFixed(2) + '%</span>';
+  }
+  setCh('cnyCh1d', ch1d);
+  setCh('cnyCh7d', ch7d);
+  setCh('cnyCh1m', ch1m);
+}
+
+function renderFX() {
+  const tbody = document.getElementById('fxBody');
+  const usdRates = snapshot.fx?.rates?.usd || {};
+  const ch1d = snapshot.fx?.change_1d || {};
+  const ch7d = snapshot.fx?.change_7d || {};
+  const ch1m = snapshot.fx?.change_1m || {};
+  const order = ['EUR','JPY','GBP','CHF','AUD','CAD','NZD','KRW','INR','SGD','HKD','CNY','TWD','BRL','MXN','RUB'];
+  const codes = Object.keys(usdRates).filter(c => c !== '_meta').sort((a,b) => {
+    const ia = order.indexOf(a), ib = order.indexOf(b);
+    return (ia === -1 ? 99 : ia) - (ib === -1 ? 99 : ib);
+  });
+  tbody.innerHTML = codes.map(code => {
+    const rate = usdRates[code];
+    const d1 = ch1d[code], d7 = ch7d[code], d30 = ch1m[code];
+    const tag = (d1 > 0 ? 'up' : d1 < 0 ? 'down' : 'neutral');
+    const s = (v,t) => v !== null && v !== undefined ? '<span class="change ' + (v>0?'up':v<0?'down':'neutral') + '">' + (v>0?'+':'') + v.toFixed(2) + '%</span>' : '—';
+    return '<tr onclick="openFXChart(\'' + code + '\')">'
+      + '<td>' + (CURRENCY_FLAGS[code]||'') + ' ' + code + ' <span class="currency-name">' + (CURRENCY_NAMES[code]||'') + '</span></td>'
+      + '<td style="text-align:right"><span class="rate">' + fmt(rate) + '</span></td>'
+      + '<td style="text-align:right">' + s(d1) + '</td>'
+      + '<td style="text-align:right">' + s(d7) + '</td>'
+      + '<td style="text-align:right">' + s(d30) + '</td>'
+      + '</tr>';
+  }).join('');
+}
+
+function renderPolicyRates() {
+  const grid = document.getElementById('policyGrid');
+  const values = snapshot.rates?.values || {};
+  const ids = ['fed_funds','ecb_refi','boj_rate','boe_rate','rba_rate','boc_rate','snb_rate','rbi_rate','bok_rate','china_lpr1y','china_lpr5y'];
+  grid.innerHTML = ids.map(id => {
+    const v = values[id];
+    return '<div class="rate-item policy" onclick="openRateChart(\'' + id + '\')">'
+      + '<div class="value">' + (v !== undefined ? v.toFixed(2) : '—') + '<span style="font-size:12px;color:var(--text3);font-weight:400">%</span></div>'
+      + '<div class="label">' + (RATE_LABELS[id]||id) + ' <span class="economy">' + (RATE_ECONOMIES[id]||'') + '</span></div>'
+      + '</div>';
+  }).join('');
+}
+
+function renderBondYields() {
+  const grid = document.getElementById('bondGrid');
+  const values = snapshot.rates?.values || {};
+  const ids = ['us_2y','us_5y','us_10y','us_30y','cn_2y','cn_10y','de_10y','jp_10y'];
+  grid.innerHTML = ids.map(id => {
+    const v = values[id];
+    return '<div class="rate-item bond" onclick="openRateChart(\'' + id + '\')">'
+      + '<div class="value">' + (v !== undefined ? v.toFixed(2) : '—') + '<span style="font-size:12px;color:var(--text3);font-weight:400">%</span></div>'
+      + '<div class="label">' + (RATE_LABELS[id]||id) + ' <span class="economy">' + (RATE_ECONOMIES[id]||'') + '</span></div>'
+      + '</div>';
+  }).join('');
+}
+
+function renderIndicators() {
+  const grid = document.getElementById('indicatorsGrid');
+  const vals = snapshot.indicators || {};
+  const rv = snapshot.rates?.values || {};
+  const items = [];
+  if (vals.us_2s10s !== undefined) {
+    items.push({ id:'us_2s10s', label:'US 2s10s Spread', value:vals.us_2s10s.toFixed(1), unit:'bps', color:vals.us_2s10s>0?'var(--green)':'var(--red)' });
+  }
+  if (rv.cn_10y !== undefined && rv.us_10y !== undefined) {
+    const sp = (rv.cn_10y - rv.us_10y) * 100;
+    items.push({ id:'cn_us_10y', label:'CN-US 10Y Spread', value:sp.toFixed(1), unit:'bps', color:sp>0?'var(--accent)':'var(--text2)' });
+  }
+  if (items.length === 0) {
+    grid.innerHTML = '<div style="color:var(--text3);padding:10px;font-size:13px">数据不足</div>';
+    return;
+  }
+  grid.innerHTML = items.map(item => {
+    return '<div class="rate-item" style="cursor:default">'
+      + '<div style="display:flex;align-items:baseline;gap:6px">'
+      + '<div class="spread-value" style="color:' + item.color + '">' + item.value + ' <span style="font-size:12px;font-weight:400;color:var(--text3)">' + item.unit + '</span></div>'
+      + '<span onclick="event.stopPropagation();showInfo(\'' + item.id + '\')" style="cursor:pointer;font-size:12px;color:var(--text3);opacity:0.5" title="查看说明">ℹ️</span>'
+      + '</div>'
+      + '<div class="spread-label">' + item.label + '</div>'
+      + '</div>';
+  }).join('');
+}
+
+function renderMarketIndicators() {
+  const grid = document.getElementById('marketGrid');
+  const mi = snapshot.market_indicators?.values;
+  if (!mi || Object.keys(mi).length === 0) {
+    grid.innerHTML = '<div style="color:var(--text3);padding:10px;font-size:13px">暂无市场指标数据</div>';
+    return;
+  }
+  grid.innerHTML = Object.entries(mi).map(function(entry) {
+    var id = entry[0], val = entry[1];
+    var label = RATE_LABELS[id] || id;
+    var desc = MARKET_DESCS[id];
+    return '<div class="rate-item" onclick="openRateChart(\'' + id + '\')">'
+      + '<div class="value">' + (typeof val === 'number' ? val.toFixed(1) : val)
+      + (desc ? '<span onclick="event.stopPropagation();showInfo(\'' + id + '\')" style="cursor:pointer;font-size:10px;color:var(--text3);opacity:0.5;margin-left:4px" title="查看说明">ℹ️</span>' : '')
+      + '</div>'
+      + '<div class="label">' + label + '</div>'
+      + '</div>';
+  }).join('');
+}
+
+function renderAlerts() {
+  const list = document.getElementById('alertsList');
+  const alerts = snapshot.alerts || [];
+  document.getElementById('alertCountBadge').textContent = alerts.length;
+  if (alerts.length === 0) {
+    list.innerHTML = '<li style="color:var(--text3)">✅ 暂无预警</li>';
+    return;
+  }
+  list.innerHTML = alerts.map(a => '<li><span>' + (a.type === 'warning' ? '⚠' : 'ℹ') + '</span> ' + a.message + '</li>').join('');
+}
+
+function renderFooter() {
+  const fxCount = historyData?.fx ? Object.keys(historyData.fx).length : 0;
+  const rateCount = historyData?.rates ? Object.keys(historyData.rates).length : 0;
+  document.getElementById('footerMeta').textContent = 'FX: ' + fxCount + ' 天 · Rates: ' + rateCount + ' 天';
+}
+
+function openFXChart(code) {
+  if (!historyData?.fx) return;
+  chartType = 'fx';
+  chartSeriesId = code;
+  const name = (CURRENCY_FLAGS[code]||'') + ' ' + code + '/' + (CURRENCY_NAMES[code]||code);
+  document.getElementById('modalTitle').textContent = name + ' — 对 USD 汇率走势';
+  const dates = Object.keys(historyData.fx).sort();
+  chartData = dates.map(d => ({ date: new Date(d), value: historyData.fx[d]?.usd?.[code] })).filter(p => p.value !== null && p.value !== undefined);
+  renderChart(code, 12);
+  document.getElementById('modalOverlay').classList.add('active');
+}
+
+function openRateChart(rateId) {
+  if (!historyData?.rates) return;
+  chartType = 'rate';
+  chartSeriesId = rateId;
+  const label = RATE_LABELS[rateId] || rateId;
+  const economy = RATE_ECONOMIES[rateId] || '';
+  document.getElementById('modalTitle').textContent = economy + ' ' + label + ' — 历史走势';
+  const dates = Object.keys(historyData.rates).sort();
+  chartData = dates.map(d => ({ date: new Date(d), value: historyData.rates[d]?.[rateId] })).filter(p => p.value !== null && p.value !== undefined);
+  renderChart(rateId, 12);
+  document.getElementById('modalOverlay').classList.add('active');
+}
+
+function renderChart(id, months) {
+  const cutoff = new Date();
+  cutoff.setMonth(cutoff.getMonth() - months);
+  const filtered = chartData.filter(p => p.date >= cutoff);
+  if (filtered.length === 0) {
+    document.getElementById('modalStats').innerHTML = '<div style="color:var(--text3)">暂无该时间段内数据</div>';
+    return;
+  }
+  const values = filtered.map(p => p.value);
+  const min = Math.min(...values);
+  const max = Math.max(...values);
+  const avg = values.reduce(function(a,b) { return a+b; }, 0) / values.length;
+  const latest = values[values.length - 1];
+  const first = values[0];
+  const change = latest - first;
+  const changePct = first !== 0 ? (change / first * 100) : 0;
+  const isRate = chartType === 'rate';
+  document.getElementById('modalStats').innerHTML = ''
+    + '<div class="modal-stat"><div class="val" style="color:var(--accent)">' + latest.toFixed(isRate ? 2 : 4) + '</div><div class="lbl">最新</div></div>'
+    + '<div class="modal-stat"><div class="val" style="color:var(--green)">' + max.toFixed(isRate ? 2 : 4) + '</div><div class="lbl">最高</div></div>'
+    + '<div class="modal-stat"><div class="val" style="color:var(--red)">' + min.toFixed(isRate ? 2 : 4) + '</div><div class="lbl">最低</div></div>'
+    + '<div class="modal-stat"><div class="val" style="color:var(--text)">' + avg.toFixed(isRate ? 2 : 4) + '</div><div class="lbl">均值</div></div>'
+    + '<div class="modal-stat"><div class="val" style="color:' + (change >= 0 ? 'var(--green)' : 'var(--red)') + '">' + (change >= 0 ? '+' : '') + changePct.toFixed(2) + '%</div><div class="lbl">区间变动</div></div>';
+
+  const lineColor = isRate ? '#6b47d3' : '#2b5cfa';
+  const fillColor = isRate ? 'rgba(107,71,211,0.1)' : 'rgba(43,92,250,0.1)';
+  const dsLabel = isRate ? (RATE_LABELS[id] || id) + ' (%)' : id + '/USD';
+  const newLabels = filtered.map(p => p.date);
+  const newData = filtered.map(p => p.value);
+
+  if (chartInstance) {
+    chartInstance.data.labels = newLabels;
+    chartInstance.data.datasets[0].label = dsLabel;
+    chartInstance.data.datasets[0].data = newData;
+    chartInstance.data.datasets[0].borderColor = lineColor;
+    chartInstance.data.datasets[0].backgroundColor = fillColor;
+    chartInstance.update();
+  } else {
+    const ctx = document.getElementById('historyChart').getContext('2d');
+    chartInstance = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: newLabels,
+        datasets: [{
+          label: dsLabel,
+          data: newData,
+          borderColor: lineColor,
+          backgroundColor: fillColor,
+          fill: true,
+          tension: 0.2,
+          pointRadius: 0,
+          pointHitRadius: 10,
+          borderWidth: 2
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        interaction: { intersect: false, mode: 'index' },
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            backgroundColor: '#fff',
+            titleColor: '#1a1a2e',
+            bodyColor: '#1a1a2e',
+            borderColor: '#e4e5ec',
+            borderWidth: 1,
+            padding: 10,
+            cornerRadius: 8,
+            bodyFont: { size: 13, weight: 'bold' },
+            callbacks: {
+              label: function(ctx) {
+                return isRate ? ctx.parsed.y.toFixed(2) + '%' : ctx.parsed.y.toFixed(4);
+              }
+            }
+          }
+        },
+        scales: {
+          x: {
+            type: 'time',
+            time: {
+              unit: months <= 3 ? 'week' : 'month',
+              displayFormats: { month: 'yyyy-MM', week: 'MM-dd' }
+            },
+            grid: { display: false },
+            ticks: { color: '#8e90a6', font: { size: 11 } }
+          },
+          y: {
+            grid: { color: '#f0f0f5' },
+            ticks: {
+              color: '#8e90a6',
+              font: { size: 11 },
+              callback: function(v) {
+                return isRate ? v.toFixed(2) + '%' : v.toFixed(4);
+              }
+            }
+          }
+        }
+      }
+    });
+  }
+}
+
+function setupRangeSelector() {
+  document.getElementById('rangeSelector').addEventListener('click', function(e) {
+    var btn = e.target.closest('.range-btn');
+    if (!btn) return;
+    document.querySelectorAll('.range-btn').forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    var months = parseInt(btn.dataset.months);
+    if (chartType && chartSeriesId) {
+      renderChart(chartSeriesId, months);
+    }
+  });
+}
+
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('active');
+}
+function scrollToAlerts() {
+  document.getElementById('alertsCard').scrollIntoView({ behavior: 'smooth' });
+}
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
+document.addEventListener('DOMContentLoaded', init);
+</script>
+</body>
+</html>
