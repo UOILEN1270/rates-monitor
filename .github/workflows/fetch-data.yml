@@ -9,6 +9,7 @@ on:
     paths:
       - 'scripts/fetch_data.py'
       - '.github/workflows/fetch-data.yml'
+      - 'README.md'
 
 permissions:
   contents: write
