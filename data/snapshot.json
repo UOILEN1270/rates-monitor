@@ -69,16 +69,16 @@
     }
   },
   "rates": {
-    "date": "2026-06-12",
+    "date": "2026-06-13",
     "values": {
       "fed_funds": 3.63,
       "ecb_refi": 2.15,
       "de_10y": 2.9963157895,
       "jp_10y": 2.515,
       "vix": 19.44,
-      "us_10y_breakeven": 2.29,
-      "us_5y_breakeven": 2.4,
-      "em_bond_index": 3597.32,
+      "us_10y_breakeven": 2.31,
+      "us_5y_breakeven": 2.39,
+      "em_bond_index": 3618.18,
       "boj_rate": 0.5,
       "boe_rate": 4.25,
       "rba_rate": 4.1,
@@ -90,20 +90,20 @@
       "china_lpr5y": 3.6,
       "cn_2y": 1.55,
       "cn_10y": 1.8,
-      "us_2y": 4.05,
-      "us_5y": 4.18,
-      "us_10y": 4.45,
-      "us_30y": 4.95
+      "us_2y": 4.09,
+      "us_5y": 4.21,
+      "us_10y": 4.48,
+      "us_30y": 4.97
     },
     "change_1w": {
       "fed_funds": 0.0,
       "ecb_refi": 0.0,
       "de_10y": 0.0,
       "jp_10y": 0.0,
-      "vix": 3.38,
-      "us_10y_breakeven": -0.07,
-      "us_5y_breakeven": -0.08,
-      "em_bond_index": -10.83,
+      "vix": 4.04,
+      "us_10y_breakeven": -0.05,
+      "us_5y_breakeven": -0.09,
+      "em_bond_index": 5.16,
       "boj_rate": 0.0,
       "boe_rate": 0.0,
       "rba_rate": 0.0,
@@ -115,23 +115,23 @@
       "china_lpr5y": 0.0,
       "cn_2y": 0.0,
       "cn_10y": 0.0,
-      "us_2y": -0.12,
-      "us_5y": -0.11,
-      "us_10y": -0.1,
+      "us_2y": -0.06,
+      "us_5y": -0.08,
+      "us_10y": -0.08,
       "us_30y": -0.06
     }
   },
   "indicators": {
-    "us_2s10s": 40.0,
-    "cn_us_10y": -265.0
+    "us_2s10s": 39.0,
+    "cn_us_10y": -268.0
   },
   "market_indicators": {
-    "date": "2026-06-12",
+    "date": "2026-06-13",
     "values": {
       "vix": 19.44,
-      "us_10y_breakeven": 2.29,
-      "us_5y_breakeven": 2.4,
-      "em_bond_index": 3597.32
+      "us_10y_breakeven": 2.31,
+      "us_5y_breakeven": 2.39,
+      "em_bond_index": 3618.18
     }
   },
   "alerts": [
@@ -161,7 +161,7 @@
     }
   ],
   "meta": {
-    "updated": "2026-06-12T16:15:44.508072",
+    "updated": "2026-06-13T05:18:41.838598",
     "source": "Rates Monitor (GH Actions)"
   }
 }
