@@ -69,15 +69,15 @@
     }
   },
   "rates": {
-    "date": "2026-06-17",
+    "date": "2026-06-18",
     "values": {
       "fed_funds": 3.63,
       "ecb_refi": 2.4,
       "de_10y": 3.0465,
       "jp_10y": 2.65,
       "vix": 16.41,
-      "us_10y_breakeven": 2.29,
-      "us_5y_breakeven": 2.36,
+      "us_10y_breakeven": 2.26,
+      "us_5y_breakeven": 2.31,
       "em_bond_index": 3624.08,
       "boj_rate": 0.5,
       "boe_rate": 4.25,
@@ -90,9 +90,9 @@
       "china_lpr5y": 3.6,
       "cn_2y": 1.55,
       "cn_10y": 1.8,
-      "us_2y": 4.05,
-      "us_5y": 4.16,
-      "us_10y": 4.43,
+      "us_2y": 4.2,
+      "us_5y": 4.27,
+      "us_10y": 4.49,
       "us_30y": 4.93
     },
     "change_1w": {
@@ -101,9 +101,9 @@
       "de_10y": 0.05,
       "jp_10y": 0.135,
       "vix": -3.03,
-      "us_10y_breakeven": 0.0,
-      "us_5y_breakeven": -0.04,
-      "em_bond_index": 26.76,
+      "us_10y_breakeven": -0.05,
+      "us_5y_breakeven": -0.08,
+      "em_bond_index": 5.9,
       "boj_rate": 0.0,
       "boe_rate": 0.0,
       "rba_rate": 0.0,
@@ -114,23 +114,19 @@
       "china_lpr1y": 0.0,
       "china_lpr5y": 0.0,
       "cn_2y": 0.0,
-      "cn_10y": 0.0,
-      "us_2y": -0.04,
-      "us_5y": -0.05,
-      "us_10y": -0.05,
-      "us_30y": -0.04
+      "cn_10y": 0.0
     }
   },
   "indicators": {
-    "us_2s10s": 38.0,
-    "cn_us_10y": -263.0
+    "us_2s10s": 29.0,
+    "cn_us_10y": -269.0
   },
   "market_indicators": {
-    "date": "2026-06-17",
+    "date": "2026-06-18",
     "values": {
       "vix": 16.41,
-      "us_10y_breakeven": 2.29,
-      "us_5y_breakeven": 2.36,
+      "us_10y_breakeven": 2.26,
+      "us_5y_breakeven": 2.31,
       "em_bond_index": 3624.08
     }
   },
@@ -141,7 +137,7 @@
     }
   ],
   "meta": {
-    "updated": "2026-06-17T16:37:22.914758",
+    "updated": "2026-06-18T05:53:07.512881",
     "source": "Rates Monitor (GH Actions)"
   }
 }
