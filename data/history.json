@@ -16610,6 +16610,27 @@
       "china_lpr5y": 3.6,
       "cn_2y": 1.55,
       "cn_10y": 1.8
+    },
+    "2026-07-10": {
+      "fed_funds": 3.63,
+      "ecb_refi": 2.4,
+      "de_10y": 3.0465,
+      "jp_10y": 2.65,
+      "vix": 16.9,
+      "us_10y_breakeven": 2.23,
+      "us_5y_breakeven": 2.28,
+      "em_bond_index": 3599.0,
+      "boj_rate": 0.5,
+      "boe_rate": 4.25,
+      "rba_rate": 4.1,
+      "boc_rate": 2.75,
+      "snb_rate": 0.5,
+      "rbi_rate": 6.0,
+      "bok_rate": 2.75,
+      "china_lpr1y": 3.1,
+      "china_lpr5y": 3.6,
+      "cn_2y": 1.55,
+      "cn_10y": 1.8
     }
   },
   "meta": {
