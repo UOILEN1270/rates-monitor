@@ -1,71 +1,71 @@
 {
   "fx": {
-    "date": "2026-07-13",
+    "date": "2026-07-14",
     "rates": {
       "usd": {
-        "AUD": 1.4403,
-        "BRL": 5.1155,
-        "CAD": 1.4135,
-        "CHF": 0.80996,
-        "CNY": 6.7776,
-        "EUR": 0.87535,
-        "GBP": 0.74694,
-        "HKD": 7.8386,
-        "INR": 95.62,
-        "JPY": 162.14,
-        "KRW": 1494.09,
-        "MXN": 17.4908,
-        "NZD": 1.7306,
-        "SGD": 1.2925
+        "AUD": 1.4404,
+        "BRL": 5.1233,
+        "CAD": 1.4112,
+        "CHF": 0.81166,
+        "CNY": 6.7801,
+        "EUR": 0.87681,
+        "GBP": 0.74717,
+        "HKD": 7.8375,
+        "INR": 96.2,
+        "JPY": 162.22,
+        "KRW": 1495.49,
+        "MXN": 17.5,
+        "NZD": 1.724,
+        "SGD": 1.2927
       }
     },
     "change_1d": {
-      "AUD": 0.1,
-      "BRL": -0.06,
-      "CAD": -0.13,
-      "CHF": 0.38,
-      "CNY": 0.05,
-      "EUR": 0.05,
-      "GBP": 0.26,
-      "HKD": -0.02,
-      "INR": 0.29,
-      "JPY": 0.17,
-      "KRW": -0.72,
-      "MXN": -0.21,
-      "NZD": -0.14,
-      "SGD": 0.11
+      "AUD": 0.01,
+      "BRL": 0.15,
+      "CAD": -0.16,
+      "CHF": 0.21,
+      "CNY": 0.04,
+      "EUR": 0.17,
+      "GBP": 0.03,
+      "HKD": -0.01,
+      "INR": 0.61,
+      "JPY": 0.05,
+      "KRW": 0.09,
+      "MXN": 0.05,
+      "NZD": -0.38,
+      "SGD": 0.02
     },
     "change_7d": {
-      "AUD": -0.77,
-      "BRL": -1.64,
-      "CAD": -0.56,
-      "CHF": 0.36,
-      "CNY": -0.17,
-      "EUR": -0.22,
-      "GBP": -0.61,
-      "HKD": -0.07,
-      "INR": 0.24,
-      "JPY": 0.35,
-      "KRW": -3.54,
-      "MXN": -0.39,
-      "NZD": -1.86,
-      "SGD": -0.15
+      "AUD": -0.06,
+      "BRL": -1.4,
+      "CAD": -0.63,
+      "CHF": 1.11,
+      "CNY": -0.02,
+      "EUR": 0.38,
+      "GBP": -0.22,
+      "HKD": -0.08,
+      "INR": 1.04,
+      "JPY": 0.66,
+      "KRW": -2.33,
+      "MXN": 0.3,
+      "NZD": -1.56,
+      "SGD": 0.17
     },
     "change_1m": {
-      "AUD": 1.32,
-      "BRL": 0.16,
-      "CAD": 1.05,
-      "CHF": 1.65,
-      "CNY": 0.23,
-      "EUR": 1.25,
-      "GBP": 0.11,
+      "AUD": 1.8,
+      "BRL": 1.46,
+      "CAD": 0.94,
+      "CHF": 2.27,
+      "CNY": 0.34,
+      "EUR": 1.77,
+      "GBP": 0.28,
       "HKD": 0.04,
-      "INR": 0.53,
-      "JPY": 1.21,
-      "KRW": -1.72,
-      "MXN": 1.55,
-      "NZD": 0.79,
-      "SGD": 0.65
+      "INR": 1.56,
+      "JPY": 1.27,
+      "KRW": -1.24,
+      "MXN": 1.68,
+      "NZD": 0.65,
+      "SGD": 0.82
     }
   },
   "rates": {
@@ -75,10 +75,10 @@
       "ecb_refi": 2.4,
       "de_10y": 3.0465,
       "jp_10y": 2.65,
-      "vix": 15.03,
+      "vix": 17.16,
       "us_10y_breakeven": 2.26,
       "us_5y_breakeven": 2.31,
-      "em_bond_index": 3598.08,
+      "em_bond_index": 3586.31,
       "boj_rate": 0.5,
       "boe_rate": 4.25,
       "rba_rate": 4.1,
@@ -100,10 +100,10 @@
       "ecb_refi": 0.0,
       "de_10y": 0.0,
       "jp_10y": 0.0,
-      "vix": -1.87,
+      "vix": 0.26,
       "us_10y_breakeven": 0.01,
       "us_5y_breakeven": 0.0,
-      "em_bond_index": -5.99,
+      "em_bond_index": -17.76,
       "boj_rate": 0.0,
       "boe_rate": 0.0,
       "rba_rate": 0.0,
@@ -128,20 +128,20 @@
   "market_indicators": {
     "date": "2026-07-14",
     "values": {
-      "vix": 15.03,
+      "vix": 17.16,
       "us_10y_breakeven": 2.26,
       "us_5y_breakeven": 2.31,
-      "em_bond_index": 3598.08
+      "em_bond_index": 3586.31
     }
   },
   "alerts": [
     {
       "type": "info",
-      "message": "KRW/USD moved -0.72% today"
+      "message": "INR/USD moved +0.61% today"
     }
   ],
   "meta": {
-    "updated": "2026-07-14T03:54:17.987780",
+    "updated": "2026-07-14T14:45:54.933678",
     "source": "Rates Monitor (GH Actions)"
   }
 }
