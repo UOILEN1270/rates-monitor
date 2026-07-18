@@ -15168,7 +15168,18 @@
       "vix": 18.92,
       "us_10y_breakeven": 2.38,
       "us_5y_breakeven": 2.61,
-      "em_bond_index": 3613.89
+      "em_bond_index": 3613.89,
+      "boj_rate": 0.5,
+      "boe_rate": 4.25,
+      "rba_rate": 4.1,
+      "boc_rate": 2.75,
+      "snb_rate": 0.5,
+      "rbi_rate": 6.0,
+      "bok_rate": 2.75,
+      "china_lpr1y": 3.1,
+      "china_lpr5y": 3.6,
+      "cn_2y": 1.55,
+      "cn_10y": 1.8
     },
     "2026-04-23": {
       "us_2y": 3.83,
