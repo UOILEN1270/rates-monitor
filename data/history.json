@@ -15153,7 +15153,18 @@
       "ecb_refi": 2.15
     },
     "2026-04-19": {
-      "ecb_refi": 2.15
+      "ecb_refi": 2.15,
+      "boj_rate": 0.5,
+      "boe_rate": 4.25,
+      "rba_rate": 4.1,
+      "boc_rate": 2.75,
+      "snb_rate": 0.5,
+      "rbi_rate": 6.0,
+      "bok_rate": 2.75,
+      "china_lpr1y": 3.1,
+      "china_lpr5y": 3.6,
+      "cn_2y": 1.55,
+      "cn_10y": 1.8
     },
     "2026-04-20": {
       "us_2y": 3.72,
@@ -17126,10 +17137,10 @@
       "ecb_refi": 2.4,
       "de_10y": 2.97,
       "jp_10y": 2.67,
-      "vix": 18.77,
+      "vix": 18.65,
       "us_10y_breakeven": 2.25,
       "us_5y_breakeven": 2.28,
-      "em_bond_index": 3600.25,
+      "em_bond_index": 3591.7,
       "boj_rate": 0.5,
       "boe_rate": 4.25,
       "rba_rate": 4.1,
