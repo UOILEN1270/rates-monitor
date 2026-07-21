@@ -69,16 +69,16 @@
     }
   },
   "rates": {
-    "date": "2026-07-20",
+    "date": "2026-07-21",
     "values": {
       "fed_funds": 3.63,
       "ecb_refi": 2.4,
       "de_10y": 2.97,
       "jp_10y": 2.67,
       "vix": 18.77,
-      "us_10y_breakeven": 2.24,
-      "us_5y_breakeven": 2.27,
-      "em_bond_index": 3600.19,
+      "us_10y_breakeven": 2.25,
+      "us_5y_breakeven": 2.28,
+      "em_bond_index": 3600.25,
       "boj_rate": 0.5,
       "boe_rate": 4.25,
       "rba_rate": 4.1,
@@ -90,20 +90,20 @@
       "china_lpr5y": 3.6,
       "cn_2y": 1.55,
       "cn_10y": 1.8,
-      "us_2y": 4.18,
-      "us_5y": 4.28,
-      "us_10y": 4.55,
-      "us_30y": 5.06
+      "us_2y": 4.21,
+      "us_5y": 4.33,
+      "us_10y": 4.6,
+      "us_30y": 5.11
     },
     "change_1w": {
       "fed_funds": 0.0,
       "ecb_refi": 0.0,
       "de_10y": -0.076,
       "jp_10y": 0.02,
-      "vix": 2.27,
-      "us_10y_breakeven": -0.01,
-      "us_5y_breakeven": -0.01,
-      "em_bond_index": 9.91,
+      "vix": 3.1,
+      "us_10y_breakeven": 0.02,
+      "us_5y_breakeven": 0.03,
+      "em_bond_index": 1.47,
       "boj_rate": 0.0,
       "boe_rate": 0.0,
       "rba_rate": 0.0,
@@ -116,27 +116,27 @@
       "cn_2y": 0.0,
       "cn_10y": 0.0,
       "us_2y": 0.05,
-      "us_5y": 0.02,
-      "us_10y": 0.0,
-      "us_30y": -0.02
+      "us_5y": 0.05,
+      "us_10y": 0.03,
+      "us_30y": 0.02
     }
   },
   "indicators": {
-    "us_2s10s": 37.0,
-    "cn_us_10y": -275.0
+    "us_2s10s": 39.0,
+    "cn_us_10y": -280.0
   },
   "market_indicators": {
-    "date": "2026-07-20",
+    "date": "2026-07-21",
     "values": {
       "vix": 18.77,
-      "us_10y_breakeven": 2.24,
-      "us_5y_breakeven": 2.27,
-      "em_bond_index": 3600.19
+      "us_10y_breakeven": 2.25,
+      "us_5y_breakeven": 2.28,
+      "em_bond_index": 3600.25
     }
   },
   "alerts": [],
   "meta": {
-    "updated": "2026-07-20T15:08:32.431975",
+    "updated": "2026-07-21T04:13:07.904551",
     "source": "Rates Monitor (GH Actions)"
   }
 }
