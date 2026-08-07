@@ -75,7 +75,7 @@
       "ecb_refi": 2.4,
       "de_10y": 2.97,
       "jp_10y": 2.67,
-      "vix": 15.81,
+      "vix": 15.15,
       "us_10y_breakeven": 2.26,
       "us_5y_breakeven": 2.23,
       "em_bond_index": 3595.45,
@@ -100,7 +100,7 @@
       "ecb_refi": 0.0,
       "de_10y": 0.0,
       "jp_10y": 0.0,
-      "vix": -1.28,
+      "vix": -1.94,
       "us_10y_breakeven": -0.02,
       "us_5y_breakeven": -0.03,
       "em_bond_index": 22.04,
@@ -124,7 +124,7 @@
   "market_indicators": {
     "date": "2026-08-07",
     "values": {
-      "vix": 15.81,
+      "vix": 15.15,
       "us_10y_breakeven": 2.26,
       "us_5y_breakeven": 2.23,
       "em_bond_index": 3595.45
@@ -132,7 +132,7 @@
   },
   "alerts": [],
   "meta": {
-    "updated": "2026-08-07T03:47:09.613679",
+    "updated": "2026-08-07T14:11:04.455531",
     "source": "Rates Monitor (GH Actions)"
   }
 }
