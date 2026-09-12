@@ -69,15 +69,15 @@
     }
   },
   "rates": {
-    "date": "2026-09-11",
+    "date": "2026-09-12",
     "values": {
       "fed_funds": 3.63,
       "ecb_refi": 2.4,
       "de_10y": 2.97,
       "jp_10y": 2.67,
       "vix": 17.84,
-      "us_10y_breakeven": 2.4,
-      "us_5y_breakeven": 2.46,
+      "us_10y_breakeven": 2.36,
+      "us_5y_breakeven": 2.4,
       "em_bond_index": 3546.18,
       "boj_rate": 0.5,
       "boe_rate": 4.25,
@@ -90,10 +90,10 @@
       "china_lpr5y": 3.6,
       "cn_2y": 1.55,
       "cn_10y": 1.8,
-      "us_2y": 4.56,
-      "us_5y": 4.75,
-      "us_10y": 4.95,
-      "us_30y": 5.37
+      "us_2y": 4.63,
+      "us_5y": 4.78,
+      "us_10y": 4.96,
+      "us_30y": 5.35
     },
     "change_1w": {
       "fed_funds": 0.0,
@@ -101,8 +101,8 @@
       "de_10y": 0.0,
       "jp_10y": 0.0,
       "vix": 3.52,
-      "us_10y_breakeven": 0.05,
-      "us_5y_breakeven": 0.09,
+      "us_10y_breakeven": 0.01,
+      "us_5y_breakeven": 0.03,
       "em_bond_index": -29.37,
       "boj_rate": 0.0,
       "boe_rate": 0.0,
@@ -118,21 +118,21 @@
     }
   },
   "indicators": {
-    "us_2s10s": 39.0,
-    "cn_us_10y": -315.0
+    "us_2s10s": 33.0,
+    "cn_us_10y": -316.0
   },
   "market_indicators": {
-    "date": "2026-09-11",
+    "date": "2026-09-12",
     "values": {
       "vix": 17.84,
-      "us_10y_breakeven": 2.4,
-      "us_5y_breakeven": 2.46,
+      "us_10y_breakeven": 2.36,
+      "us_5y_breakeven": 2.4,
       "em_bond_index": 3546.18
     }
   },
   "alerts": [],
   "meta": {
-    "updated": "2026-09-11T16:52:32.612810",
+    "updated": "2026-09-12T05:21:26.706848",
     "source": "Rates Monitor (GH Actions)"
   }
 }
