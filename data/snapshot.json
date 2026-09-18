@@ -1,71 +1,71 @@
 {
   "fx": {
-    "date": "2026-09-17",
+    "date": "2026-09-18",
     "rates": {
       "usd": {
-        "AUD": 1.4057,
-        "BRL": 5.1307,
-        "CAD": 1.3995,
-        "CHF": 0.82449,
-        "CNY": 6.7075,
-        "EUR": 0.871,
-        "GBP": 0.74758,
-        "HKD": 7.8452,
-        "INR": 95.94,
-        "JPY": 155.69,
-        "KRW": 1382.55,
-        "MXN": 17.1881,
-        "NZD": 1.7414,
-        "SGD": 1.2753
+        "AUD": 1.4045,
+        "BRL": 5.1359,
+        "CAD": 1.401,
+        "CHF": 0.82565,
+        "CNY": 6.6976,
+        "EUR": 0.8726,
+        "GBP": 0.74939,
+        "HKD": 7.8449,
+        "INR": 95.88,
+        "JPY": 157.89,
+        "KRW": 1388.1,
+        "MXN": 17.1776,
+        "NZD": 1.7511,
+        "SGD": 1.2784
       }
     },
     "change_1d": {
-      "AUD": 0.26,
-      "BRL": -0.3,
-      "CAD": 0.4,
-      "CHF": 0.67,
-      "CNY": 0.01,
-      "EUR": 0.49,
-      "GBP": 0.59,
-      "HKD": 0.0,
-      "INR": -0.02,
-      "JPY": 0.41,
-      "KRW": 1.08,
-      "MXN": 0.29,
-      "NZD": 0.35,
-      "SGD": 0.16
+      "AUD": -0.09,
+      "BRL": 0.1,
+      "CAD": 0.11,
+      "CHF": 0.14,
+      "CNY": -0.15,
+      "EUR": 0.18,
+      "GBP": 0.24,
+      "HKD": -0.0,
+      "INR": -0.06,
+      "JPY": 1.41,
+      "KRW": 0.4,
+      "MXN": -0.06,
+      "NZD": 0.56,
+      "SGD": 0.24
     },
     "change_7d": {
-      "AUD": 1.41,
-      "BRL": 0.38,
-      "CAD": 1.38,
-      "CHF": 1.6,
-      "CNY": -0.04,
-      "EUR": 1.16,
-      "GBP": 1.26,
-      "HKD": 0.05,
-      "INR": 1.17,
-      "JPY": 0.9,
-      "KRW": 3.05,
-      "MXN": 1.4,
-      "NZD": 1.75,
-      "SGD": 0.75
+      "AUD": 1.47,
+      "BRL": 0.92,
+      "CAD": 1.76,
+      "CHF": 2.3,
+      "CNY": -0.15,
+      "EUR": 1.68,
+      "GBP": 1.65,
+      "HKD": 0.03,
+      "INR": 0.81,
+      "JPY": 3.01,
+      "KRW": 3.88,
+      "MXN": 1.63,
+      "NZD": 2.52,
+      "SGD": 1.19
     },
     "change_1m": {
-      "AUD": -0.54,
-      "BRL": -1.41,
-      "CAD": 0.89,
-      "CHF": 1.77,
-      "CNY": -0.46,
-      "EUR": 1.08,
-      "GBP": 1.34,
-      "HKD": 0.05,
-      "INR": 0.19,
-      "JPY": -2.14,
-      "KRW": -0.64,
-      "MXN": 0.89,
-      "NZD": 2.39,
-      "SGD": -0.07
+      "AUD": -0.19,
+      "BRL": -1.11,
+      "CAD": 1.74,
+      "CHF": 3.34,
+      "CNY": -0.39,
+      "EUR": 1.93,
+      "GBP": 2.11,
+      "HKD": 0.01,
+      "INR": 0.18,
+      "JPY": -0.55,
+      "KRW": -0.59,
+      "MXN": 1.1,
+      "NZD": 4.06,
+      "SGD": 0.49
     }
   },
   "rates": {
@@ -75,10 +75,10 @@
       "ecb_refi": 2.65,
       "de_10y": 3.18,
       "jp_10y": 2.94,
-      "vix": 17.71,
+      "vix": 15.44,
       "us_10y_breakeven": 2.33,
       "us_5y_breakeven": 2.32,
-      "em_bond_index": 3541.41,
+      "em_bond_index": 3559.17,
       "boj_rate": 0.5,
       "boe_rate": 4.25,
       "rba_rate": 4.1,
@@ -100,10 +100,10 @@
       "ecb_refi": 0.25,
       "de_10y": 0.21,
       "jp_10y": 0.27,
-      "vix": -0.13,
+      "vix": -2.4,
       "us_10y_breakeven": -0.03,
       "us_5y_breakeven": -0.08,
-      "em_bond_index": -4.77,
+      "em_bond_index": 12.99,
       "boj_rate": 0.0,
       "boe_rate": 0.0,
       "rba_rate": 0.0,
@@ -124,28 +124,24 @@
   "market_indicators": {
     "date": "2026-09-18",
     "values": {
-      "vix": 17.71,
+      "vix": 15.44,
       "us_10y_breakeven": 2.33,
       "us_5y_breakeven": 2.32,
-      "em_bond_index": 3541.41
+      "em_bond_index": 3559.17
     }
   },
   "alerts": [
     {
-      "type": "info",
-      "message": "CHF/USD moved +0.67% today"
-    },
-    {
-      "type": "info",
-      "message": "GBP/USD moved +0.59% today"
-    },
-    {
       "type": "warning",
-      "message": "KRW/USD moved +1.08% today"
+      "message": "JPY/USD moved +1.41% today"
+    },
+    {
+      "type": "info",
+      "message": "NZD/USD moved +0.56% today"
     }
   ],
   "meta": {
-    "updated": "2026-09-18T05:30:57.848936",
+    "updated": "2026-09-18T16:55:10.494249",
     "source": "Rates Monitor (GH Actions)"
   }
 }
