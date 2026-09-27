@@ -69,7 +69,7 @@
     }
   },
   "rates": {
-    "date": "2026-09-26",
+    "date": "2026-09-27",
     "values": {
       "fed_funds": 3.63,
       "ecb_refi": 2.65,
@@ -100,9 +100,9 @@
       "ecb_refi": 0.0,
       "de_10y": 0.0,
       "jp_10y": 0.0,
-      "vix": -0.6,
-      "us_10y_breakeven": 0.01,
-      "us_5y_breakeven": 0.03,
+      "vix": -0.66,
+      "us_10y_breakeven": 0.0,
+      "us_5y_breakeven": 0.01,
       "em_bond_index": -36.9,
       "boj_rate": 0.0,
       "boe_rate": 0.0,
@@ -115,7 +115,7 @@
       "china_lpr5y": 0.0,
       "cn_2y": 0.0,
       "cn_10y": 0.0,
-      "us_2y": 0.05,
+      "us_2y": 0.1,
       "us_5y": 0.15,
       "us_10y": 0.21,
       "us_30y": 0.2
@@ -126,7 +126,7 @@
     "cn_us_10y": -337.0
   },
   "market_indicators": {
-    "date": "2026-09-26",
+    "date": "2026-09-27",
     "values": {
       "vix": 14.21,
       "us_10y_breakeven": 2.34,
@@ -149,7 +149,7 @@
     }
   ],
   "meta": {
-    "updated": "2026-09-26T16:51:22.954952",
+    "updated": "2026-09-27T06:08:38.251958",
     "source": "Rates Monitor (GH Actions)"
   }
 }
