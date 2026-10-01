@@ -10751,6 +10751,24 @@
         "NZD": 1.7715,
         "SGD": 1.2772
       }
+    },
+    "2026-10-01": {
+      "usd": {
+        "AUD": 1.4388,
+        "BRL": 5.1885,
+        "CAD": 1.4246,
+        "CHF": 0.83528,
+        "CNY": 6.7045,
+        "EUR": 0.88511,
+        "GBP": 0.75565,
+        "HKD": 7.8472,
+        "INR": 96.33,
+        "JPY": 157.98,
+        "KRW": 1361.27,
+        "MXN": 18.1669,
+        "NZD": 1.7809,
+        "SGD": 1.2799
+      }
     }
   },
   "rates": {
@@ -15473,7 +15491,18 @@
       "vix": 17.76,
       "us_10y_breakeven": 2.34,
       "us_5y_breakeven": 2.5,
-      "em_bond_index": 3608.73
+      "em_bond_index": 3608.73,
+      "boj_rate": 0.5,
+      "boe_rate": 4.25,
+      "rba_rate": 4.1,
+      "boc_rate": 2.75,
+      "snb_rate": 0.5,
+      "rbi_rate": 6.0,
+      "bok_rate": 2.75,
+      "china_lpr1y": 3.1,
+      "china_lpr5y": 3.6,
+      "cn_2y": 1.55,
+      "cn_10y": 1.8
     },
     "2026-02-07": {
       "ecb_refi": 2.15,
@@ -20570,10 +20599,10 @@
       "ecb_refi": 2.65,
       "de_10y": 3.18,
       "jp_10y": 2.94,
-      "vix": 16.04,
+      "vix": 16.34,
       "us_10y_breakeven": 2.36,
       "us_5y_breakeven": 2.36,
-      "em_bond_index": 3490.08,
+      "em_bond_index": 3487.27,
       "boj_rate": 0.5,
       "boe_rate": 4.25,
       "rba_rate": 4.1,

@@ -1,71 +1,71 @@
 {
   "fx": {
-    "date": "2026-09-30",
+    "date": "2026-10-01",
     "rates": {
       "usd": {
-        "AUD": 1.4352,
-        "BRL": 5.2027,
-        "CAD": 1.4183,
-        "CHF": 0.8347,
+        "AUD": 1.4388,
+        "BRL": 5.1885,
+        "CAD": 1.4246,
+        "CHF": 0.83528,
         "CNY": 6.7045,
-        "EUR": 0.88067,
-        "GBP": 0.75265,
-        "HKD": 7.8463,
-        "INR": 95.83,
-        "JPY": 157.0,
-        "KRW": 1355.4,
-        "MXN": 18.1259,
-        "NZD": 1.7715,
-        "SGD": 1.2772
+        "EUR": 0.88511,
+        "GBP": 0.75565,
+        "HKD": 7.8472,
+        "INR": 96.33,
+        "JPY": 157.98,
+        "KRW": 1361.27,
+        "MXN": 18.1669,
+        "NZD": 1.7809,
+        "SGD": 1.2799
       }
     },
     "change_1d": {
-      "AUD": 0.53,
-      "BRL": -0.17,
-      "CAD": 0.02,
-      "CHF": 0.18,
-      "CNY": 0.02,
-      "EUR": 0.0,
-      "GBP": -0.3,
-      "HKD": 0.0,
-      "INR": -0.16,
-      "JPY": -0.08,
-      "KRW": 0.15,
-      "MXN": 1.28,
-      "NZD": 0.2,
-      "SGD": -0.01
+      "AUD": 0.25,
+      "BRL": -0.27,
+      "CAD": 0.44,
+      "CHF": 0.07,
+      "CNY": 0.0,
+      "EUR": 0.5,
+      "GBP": 0.4,
+      "HKD": 0.01,
+      "INR": 0.52,
+      "JPY": 0.62,
+      "KRW": 0.43,
+      "MXN": 0.23,
+      "NZD": 0.53,
+      "SGD": 0.21
     },
     "change_7d": {
-      "AUD": 2.44,
-      "BRL": 1.46,
-      "CAD": 1.28,
-      "CHF": 1.62,
-      "CNY": 0.14,
-      "EUR": 1.19,
-      "GBP": 0.82,
-      "HKD": 0.01,
-      "INR": 0.01,
-      "JPY": -0.17,
-      "KRW": -1.22,
-      "MXN": 5.43,
-      "NZD": 1.59,
-      "SGD": 0.19
+      "AUD": 2.3,
+      "BRL": 1.28,
+      "CAD": 1.44,
+      "CHF": 1.94,
+      "CNY": 0.07,
+      "EUR": 1.46,
+      "GBP": 0.98,
+      "HKD": 0.05,
+      "INR": 0.77,
+      "JPY": 0.51,
+      "KRW": 0.38,
+      "MXN": 5.32,
+      "NZD": 2.06,
+      "SGD": 0.41
     },
     "change_1m": {
-      "AUD": 2.49,
-      "BRL": 0.07,
-      "CAD": 2.12,
-      "CHF": 2.98,
-      "CNY": -0.26,
-      "EUR": 2.07,
-      "GBP": 1.84,
-      "HKD": 0.07,
-      "INR": 0.93,
-      "JPY": -1.97,
-      "KRW": -1.4,
-      "MXN": 6.62,
-      "NZD": 4.36,
-      "SGD": 0.3
+      "AUD": 2.84,
+      "BRL": 0.73,
+      "CAD": 2.31,
+      "CHF": 2.62,
+      "CNY": -0.25,
+      "EUR": 2.48,
+      "GBP": 1.88,
+      "HKD": 0.06,
+      "INR": 1.43,
+      "JPY": -1.02,
+      "KRW": -0.09,
+      "MXN": 6.86,
+      "NZD": 3.78,
+      "SGD": 0.53
     }
   },
   "rates": {
@@ -75,10 +75,10 @@
       "ecb_refi": 2.65,
       "de_10y": 3.18,
       "jp_10y": 2.94,
-      "vix": 16.04,
+      "vix": 16.34,
       "us_10y_breakeven": 2.36,
       "us_5y_breakeven": 2.36,
-      "em_bond_index": 3490.08,
+      "em_bond_index": 3487.27,
       "boj_rate": 0.5,
       "boe_rate": 4.25,
       "rba_rate": 4.1,
@@ -100,10 +100,10 @@
       "ecb_refi": 0.0,
       "de_10y": 0.0,
       "jp_10y": 0.0,
-      "vix": 1.83,
+      "vix": 2.13,
       "us_10y_breakeven": 0.02,
       "us_5y_breakeven": 0.02,
-      "em_bond_index": -19.21,
+      "em_bond_index": -22.02,
       "boj_rate": 0.0,
       "boe_rate": 0.0,
       "rba_rate": 0.0,
@@ -124,24 +124,32 @@
   "market_indicators": {
     "date": "2026-10-01",
     "values": {
-      "vix": 16.04,
+      "vix": 16.34,
       "us_10y_breakeven": 2.36,
       "us_5y_breakeven": 2.36,
-      "em_bond_index": 3490.08
+      "em_bond_index": 3487.27
     }
   },
   "alerts": [
     {
       "type": "info",
-      "message": "AUD/USD moved +0.53% today"
+      "message": "EUR/USD moved +0.50% today"
     },
     {
-      "type": "warning",
-      "message": "MXN/USD moved +1.28% today"
+      "type": "info",
+      "message": "INR/USD moved +0.52% today"
+    },
+    {
+      "type": "info",
+      "message": "JPY/USD moved +0.62% today"
+    },
+    {
+      "type": "info",
+      "message": "NZD/USD moved +0.53% today"
     }
   ],
   "meta": {
-    "updated": "2026-10-01T06:47:12.020158",
+    "updated": "2026-10-01T18:40:38.047096",
     "source": "Rates Monitor (GH Actions)"
   }
 }
