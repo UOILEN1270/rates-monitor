@@ -1,71 +1,71 @@
 {
   "fx": {
-    "date": "2026-10-06",
+    "date": "2026-10-07",
     "rates": {
       "usd": {
-        "AUD": 1.4322,
-        "BRL": 4.9686,
-        "CAD": 1.425,
-        "CHF": 0.83051,
+        "AUD": 1.4386,
+        "BRL": 5.0061,
+        "CAD": 1.4253,
+        "CHF": 0.83287,
         "CNY": 6.7046,
-        "EUR": 0.88739,
-        "GBP": 0.75322,
-        "HKD": 7.8479,
-        "INR": 96.42,
-        "JPY": 158.09,
-        "KRW": 1338.78,
-        "MXN": 17.9448,
-        "NZD": 1.7802,
-        "SGD": 1.2771
+        "EUR": 0.89469,
+        "GBP": 0.75731,
+        "HKD": 7.8484,
+        "INR": 96.73,
+        "JPY": 158.23,
+        "KRW": 1338.69,
+        "MXN": 18.0943,
+        "NZD": 1.7873,
+        "SGD": 1.2804
       }
     },
     "change_1d": {
-      "AUD": -0.31,
-      "BRL": -0.32,
-      "CAD": -0.02,
-      "CHF": -0.06,
+      "AUD": 0.45,
+      "BRL": 0.75,
+      "CAD": 0.02,
+      "CHF": 0.28,
       "CNY": 0.0,
-      "EUR": -0.58,
-      "GBP": -0.39,
-      "HKD": 0.0,
-      "INR": 0.12,
-      "JPY": -0.09,
-      "KRW": -0.39,
-      "MXN": -1.13,
-      "NZD": -0.46,
-      "SGD": -0.25
+      "EUR": 0.82,
+      "GBP": 0.54,
+      "HKD": 0.01,
+      "INR": 0.32,
+      "JPY": 0.09,
+      "KRW": -0.01,
+      "MXN": 0.83,
+      "NZD": 0.4,
+      "SGD": 0.26
     },
     "change_7d": {
-      "AUD": 0.69,
-      "BRL": -4.12,
-      "CAD": 0.76,
-      "CHF": 0.27,
-      "CNY": -0.13,
-      "EUR": 1.19,
-      "GBP": -0.18,
+      "AUD": 1.05,
+      "BRL": -3.76,
+      "CAD": 0.61,
+      "CHF": 0.13,
+      "CNY": -0.09,
+      "EUR": 1.8,
+      "GBP": 0.44,
       "HKD": 0.05,
-      "INR": 0.63,
-      "JPY": 0.32,
-      "KRW": -1.2,
-      "MXN": 1.39,
-      "NZD": 0.95,
-      "SGD": 0.0
+      "INR": 0.78,
+      "JPY": 0.86,
+      "KRW": -1.42,
+      "MXN": 1.85,
+      "NZD": 1.32,
+      "SGD": 0.21
     },
     "change_1m": {
-      "AUD": 3.33,
-      "BRL": -3.07,
-      "CAD": 3.11,
+      "AUD": 3.79,
+      "BRL": -2.05,
+      "CAD": 3.25,
       "CHF": 2.63,
-      "CNY": -0.1,
-      "EUR": 3.13,
-      "GBP": 1.92,
-      "HKD": 0.1,
-      "INR": 2.04,
-      "JPY": 2.16,
-      "KRW": -0.68,
-      "MXN": 6.11,
-      "NZD": 4.6,
-      "SGD": 0.86
+      "CNY": -0.09,
+      "EUR": 3.91,
+      "GBP": 2.58,
+      "HKD": 0.09,
+      "INR": 2.0,
+      "JPY": 2.55,
+      "KRW": -0.22,
+      "MXN": 6.74,
+      "NZD": 4.43,
+      "SGD": 1.15
     }
   },
   "rates": {
@@ -75,10 +75,10 @@
       "ecb_refi": 2.65,
       "de_10y": 3.18,
       "jp_10y": 2.94,
-      "vix": 15.52,
+      "vix": 15.01,
       "us_10y_breakeven": 2.36,
       "us_5y_breakeven": 2.37,
-      "em_bond_index": 3484.43,
+      "em_bond_index": 3493.58,
       "boj_rate": 0.5,
       "boe_rate": 4.25,
       "rba_rate": 4.1,
@@ -100,10 +100,10 @@
       "ecb_refi": 0.0,
       "de_10y": 0.0,
       "jp_10y": 0.0,
-      "vix": -0.87,
+      "vix": -1.38,
       "us_10y_breakeven": 0.0,
       "us_5y_breakeven": 0.01,
-      "em_bond_index": -7.15,
+      "em_bond_index": 2.0,
       "boj_rate": 0.0,
       "boe_rate": 0.0,
       "rba_rate": 0.0,
@@ -128,24 +128,32 @@
   "market_indicators": {
     "date": "2026-10-07",
     "values": {
-      "vix": 15.52,
+      "vix": 15.01,
       "us_10y_breakeven": 2.36,
       "us_5y_breakeven": 2.37,
-      "em_bond_index": 3484.43
+      "em_bond_index": 3493.58
     }
   },
   "alerts": [
     {
       "type": "info",
-      "message": "EUR/USD moved -0.58% today"
+      "message": "BRL/USD moved +0.75% today"
     },
     {
-      "type": "warning",
-      "message": "MXN/USD moved -1.13% today"
+      "type": "info",
+      "message": "EUR/USD moved +0.82% today"
+    },
+    {
+      "type": "info",
+      "message": "GBP/USD moved +0.54% today"
+    },
+    {
+      "type": "info",
+      "message": "MXN/USD moved +0.83% today"
     }
   ],
   "meta": {
-    "updated": "2026-10-07T06:48:52.044756",
+    "updated": "2026-10-07T19:11:07.723260",
     "source": "Rates Monitor (GH Actions)"
   }
 }
