@@ -1,71 +1,71 @@
 {
   "fx": {
-    "date": "2026-11-10",
+    "date": "2026-11-11",
     "rates": {
       "usd": {
-        "AUD": 1.4485,
-        "BRL": 5.5517,
-        "CAD": 1.4136,
-        "CHF": 0.82067,
-        "CNY": 6.6703,
-        "EUR": 0.89174,
-        "GBP": 0.74501,
-        "HKD": 7.8449,
-        "INR": 93.93,
-        "JPY": 158.18,
-        "KRW": 1339.0,
-        "MXN": 18.5536,
-        "NZD": 1.7768,
-        "SGD": 1.2783
+        "AUD": 1.4579,
+        "BRL": 5.5565,
+        "CAD": 1.4235,
+        "CHF": 0.82987,
+        "CNY": 6.6707,
+        "EUR": 0.89871,
+        "GBP": 0.75149,
+        "HKD": 7.8456,
+        "INR": 93.69,
+        "JPY": 159.23,
+        "KRW": 1336.9,
+        "MXN": 18.6591,
+        "NZD": 1.791,
+        "SGD": 1.2826
       }
     },
     "change_1d": {
-      "AUD": -0.14,
-      "BRL": 0.63,
-      "CAD": 0.23,
-      "CHF": 0.24,
-      "CNY": -0.04,
-      "EUR": -0.19,
-      "GBP": -0.05,
-      "HKD": 0.04,
-      "INR": 0.0,
-      "JPY": 0.15,
-      "KRW": -0.58,
-      "MXN": -0.32,
-      "NZD": -0.27,
-      "SGD": -0.14
+      "AUD": 0.65,
+      "BRL": 0.09,
+      "CAD": 0.7,
+      "CHF": 1.12,
+      "CNY": 0.01,
+      "EUR": 0.78,
+      "GBP": 0.87,
+      "HKD": 0.01,
+      "INR": -0.26,
+      "JPY": 0.66,
+      "KRW": -0.16,
+      "MXN": 0.57,
+      "NZD": 0.8,
+      "SGD": 0.34
     },
     "change_7d": {
-      "AUD": 1.75,
-      "BRL": 2.19,
-      "CAD": 1.2,
-      "CHF": -0.28,
-      "CNY": 0.26,
-      "EUR": -0.37,
-      "GBP": -0.18,
+      "AUD": 2.17,
+      "BRL": 2.18,
+      "CAD": 1.87,
+      "CHF": 1.25,
+      "CNY": 0.34,
+      "EUR": 0.8,
+      "GBP": 0.85,
       "HKD": -0.01,
-      "INR": -1.07,
-      "JPY": 0.59,
-      "KRW": 0.28,
-      "MXN": -1.87,
-      "NZD": 0.14,
-      "SGD": -0.01
+      "INR": -1.29,
+      "JPY": 0.84,
+      "KRW": -0.45,
+      "MXN": -0.32,
+      "NZD": 0.77,
+      "SGD": 0.29
     },
     "change_1m": {
-      "AUD": 1.02,
-      "BRL": 11.21,
-      "CAD": -0.88,
-      "CHF": -1.46,
-      "CNY": -0.34,
-      "EUR": -0.29,
-      "GBP": -1.4,
+      "AUD": 1.73,
+      "BRL": 10.76,
+      "CAD": -0.04,
+      "CHF": -0.29,
+      "CNY": -0.35,
+      "EUR": 0.55,
+      "GBP": -0.45,
       "HKD": -0.03,
-      "INR": -1.93,
-      "JPY": -0.26,
-      "KRW": 0.44,
-      "MXN": 1.15,
-      "NZD": -0.51,
-      "SGD": -0.15
+      "INR": -1.67,
+      "JPY": 0.7,
+      "KRW": -0.34,
+      "MXN": 1.77,
+      "NZD": 0.53,
+      "SGD": 0.21
     }
   },
   "rates": {
@@ -75,7 +75,7 @@
       "ecb_refi": 2.65,
       "de_10y": 3.46952380952381,
       "jp_10y": 3.05,
-      "vix": 19.92,
+      "vix": 19.46,
       "us_10y_breakeven": 2.2,
       "us_5y_breakeven": 2.25,
       "em_bond_index": 3578.34,
@@ -100,7 +100,7 @@
       "ecb_refi": 0.0,
       "de_10y": 0.0,
       "jp_10y": 0.0,
-      "vix": -8.26,
+      "vix": -8.72,
       "us_10y_breakeven": -0.04,
       "us_5y_breakeven": -0.01,
       "em_bond_index": 1.59,
@@ -128,7 +128,7 @@
   "market_indicators": {
     "date": "2026-11-11",
     "values": {
-      "vix": 19.92,
+      "vix": 19.46,
       "us_10y_breakeven": 2.2,
       "us_5y_breakeven": 2.25,
       "em_bond_index": 3578.34
@@ -137,15 +137,39 @@
   "alerts": [
     {
       "type": "info",
-      "message": "BRL/USD moved +0.63% today"
+      "message": "AUD/USD moved +0.65% today"
     },
     {
       "type": "info",
-      "message": "KRW/USD moved -0.58% today"
+      "message": "CAD/USD moved +0.70% today"
+    },
+    {
+      "type": "warning",
+      "message": "CHF/USD moved +1.12% today"
+    },
+    {
+      "type": "info",
+      "message": "EUR/USD moved +0.78% today"
+    },
+    {
+      "type": "info",
+      "message": "GBP/USD moved +0.87% today"
+    },
+    {
+      "type": "info",
+      "message": "JPY/USD moved +0.66% today"
+    },
+    {
+      "type": "info",
+      "message": "MXN/USD moved +0.57% today"
+    },
+    {
+      "type": "info",
+      "message": "NZD/USD moved +0.80% today"
     }
   ],
   "meta": {
-    "updated": "2026-11-11T07:28:05.522207",
+    "updated": "2026-11-11T19:58:52.194524",
     "source": "Rates Monitor (GH Actions)"
   }
 }
