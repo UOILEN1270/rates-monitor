@@ -1,71 +1,71 @@
 {
   "fx": {
-    "date": "2026-11-26",
+    "date": "2026-11-27",
     "rates": {
       "usd": {
-        "AUD": 1.5071,
-        "BRL": 5.7651,
-        "CAD": 1.423,
-        "CHF": 0.83399,
-        "CNY": 6.6602,
-        "EUR": 0.91116,
-        "GBP": 0.76314,
-        "HKD": 7.8374,
-        "INR": 92.45,
-        "JPY": 159.26,
-        "KRW": 1344.65,
-        "MXN": 19.6711,
-        "NZD": 1.8253,
-        "SGD": 1.2905
+        "AUD": 1.4996,
+        "BRL": 5.4984,
+        "CAD": 1.4245,
+        "CHF": 0.83572,
+        "CNY": 6.6544,
+        "EUR": 0.91266,
+        "GBP": 0.76211,
+        "HKD": 7.8282,
+        "INR": 93.0,
+        "JPY": 159.54,
+        "KRW": 1334.9,
+        "MXN": 19.5117,
+        "NZD": 1.8244,
+        "SGD": 1.2898
       }
     },
     "change_1d": {
-      "AUD": -0.99,
-      "BRL": -2.31,
-      "CAD": -0.2,
-      "CHF": 0.38,
-      "CNY": -0.23,
-      "EUR": -0.36,
-      "GBP": -0.34,
-      "HKD": -0.01,
-      "INR": 0.23,
-      "JPY": -0.04,
-      "KRW": -0.06,
-      "MXN": -0.15,
-      "NZD": -0.43,
-      "SGD": -0.12
+      "AUD": -0.5,
+      "BRL": -4.63,
+      "CAD": 0.11,
+      "CHF": 0.21,
+      "CNY": -0.09,
+      "EUR": 0.16,
+      "GBP": -0.13,
+      "HKD": -0.12,
+      "INR": 0.59,
+      "JPY": 0.18,
+      "KRW": -0.73,
+      "MXN": -0.81,
+      "NZD": -0.05,
+      "SGD": -0.05
     },
     "change_7d": {
-      "AUD": 1.5,
-      "BRL": -0.29,
-      "CAD": -0.43,
-      "CHF": -0.74,
-      "CNY": -0.09,
-      "EUR": 0.13,
-      "GBP": 0.67,
-      "HKD": -0.11,
-      "INR": -1.1,
-      "JPY": -0.03,
-      "KRW": 0.63,
-      "MXN": 6.54,
-      "NZD": 0.37,
-      "SGD": 0.13
+      "AUD": 0.94,
+      "BRL": -5.5,
+      "CAD": -0.42,
+      "CHF": -0.83,
+      "CNY": -0.19,
+      "EUR": 0.1,
+      "GBP": 0.36,
+      "HKD": -0.24,
+      "INR": -0.47,
+      "JPY": 0.08,
+      "KRW": 0.19,
+      "MXN": 5.04,
+      "NZD": 0.3,
+      "SGD": 0.02
     },
     "change_1m": {
-      "AUD": 5.99,
-      "BRL": 8.22,
-      "CAD": 1.3,
-      "CHF": 0.41,
-      "CNY": -0.09,
-      "EUR": 1.44,
-      "GBP": 1.4,
-      "HKD": -0.1,
-      "INR": -2.91,
-      "JPY": 0.82,
-      "KRW": 0.31,
-      "MXN": 5.58,
-      "NZD": 2.46,
-      "SGD": 0.66
+      "AUD": 5.35,
+      "BRL": 2.74,
+      "CAD": 1.78,
+      "CHF": 0.86,
+      "CNY": -0.11,
+      "EUR": 1.58,
+      "GBP": 1.49,
+      "HKD": -0.23,
+      "INR": -2.38,
+      "JPY": 0.94,
+      "KRW": -0.18,
+      "MXN": 4.08,
+      "NZD": 2.47,
+      "SGD": 0.63
     }
   },
   "rates": {
@@ -75,10 +75,10 @@
       "ecb_refi": 2.65,
       "de_10y": 3.4159090909,
       "jp_10y": 2.755,
-      "vix": 26.36,
+      "vix": 26.8,
       "us_10y_breakeven": 2.12,
       "us_5y_breakeven": 2.13,
-      "em_bond_index": 3555.82,
+      "em_bond_index": 3567.08,
       "boj_rate": 0.5,
       "boe_rate": 4.25,
       "rba_rate": 4.1,
@@ -90,20 +90,20 @@
       "china_lpr5y": 3.6,
       "cn_2y": 1.55,
       "cn_10y": 1.8,
-      "us_2y": 4.61,
-      "us_5y": 4.65,
-      "us_10y": 4.85,
-      "us_30y": 5.24
+      "us_2y": 4.69,
+      "us_5y": 4.74,
+      "us_10y": 4.94,
+      "us_30y": 5.33
     },
     "change_1w": {
       "fed_funds": 0.0,
       "ecb_refi": 0.0,
       "de_10y": 0.0,
       "jp_10y": 0.0,
-      "vix": -2.08,
+      "vix": -1.64,
       "us_10y_breakeven": -0.03,
       "us_5y_breakeven": -0.05,
-      "em_bond_index": 15.28,
+      "em_bond_index": 26.54,
       "boj_rate": 0.0,
       "boe_rate": 0.0,
       "rba_rate": 0.0,
@@ -118,30 +118,42 @@
     }
   },
   "indicators": {
-    "us_2s10s": 24.0,
-    "cn_us_10y": -305.0
+    "us_2s10s": 25.0,
+    "cn_us_10y": -314.0
   },
   "market_indicators": {
     "date": "2026-11-27",
     "values": {
-      "vix": 26.36,
+      "vix": 26.8,
       "us_10y_breakeven": 2.12,
       "us_5y_breakeven": 2.13,
-      "em_bond_index": 3555.82
+      "em_bond_index": 3567.08
     }
   },
   "alerts": [
     {
       "type": "info",
-      "message": "AUD/USD moved -0.99% today"
+      "message": "AUD/USD moved -0.50% today"
     },
     {
       "type": "warning",
-      "message": "BRL/USD moved -2.31% today"
+      "message": "BRL/USD moved -4.63% today"
+    },
+    {
+      "type": "info",
+      "message": "INR/USD moved +0.59% today"
+    },
+    {
+      "type": "info",
+      "message": "KRW/USD moved -0.73% today"
+    },
+    {
+      "type": "info",
+      "message": "MXN/USD moved -0.81% today"
     }
   ],
   "meta": {
-    "updated": "2026-11-27T09:23:28.996661",
+    "updated": "2026-11-27T21:47:21.670042",
     "source": "Rates Monitor (GH Actions)"
   }
 }
