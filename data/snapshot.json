@@ -69,15 +69,15 @@
     }
   },
   "rates": {
-    "date": "2026-11-27",
+    "date": "2026-11-28",
     "values": {
       "fed_funds": 3.88,
       "ecb_refi": 2.65,
       "de_10y": 3.4159090909,
       "jp_10y": 2.755,
       "vix": 26.8,
-      "us_10y_breakeven": 2.12,
-      "us_5y_breakeven": 2.13,
+      "us_10y_breakeven": 2.15,
+      "us_5y_breakeven": 2.16,
       "em_bond_index": 3567.08,
       "boj_rate": 0.5,
       "boe_rate": 4.25,
@@ -101,8 +101,8 @@
       "de_10y": 0.0,
       "jp_10y": 0.0,
       "vix": -1.64,
-      "us_10y_breakeven": -0.03,
-      "us_5y_breakeven": -0.05,
+      "us_10y_breakeven": 0.0,
+      "us_5y_breakeven": -0.02,
       "em_bond_index": 26.54,
       "boj_rate": 0.0,
       "boe_rate": 0.0,
@@ -114,7 +114,11 @@
       "china_lpr1y": 0.0,
       "china_lpr5y": 0.0,
       "cn_2y": 0.0,
-      "cn_10y": 0.0
+      "cn_10y": 0.0,
+      "us_2y": 0.06,
+      "us_5y": 0.0,
+      "us_10y": 0.02,
+      "us_30y": 0.04
     }
   },
   "indicators": {
@@ -122,11 +126,11 @@
     "cn_us_10y": -314.0
   },
   "market_indicators": {
-    "date": "2026-11-27",
+    "date": "2026-11-28",
     "values": {
       "vix": 26.8,
-      "us_10y_breakeven": 2.12,
-      "us_5y_breakeven": 2.13,
+      "us_10y_breakeven": 2.15,
+      "us_5y_breakeven": 2.16,
       "em_bond_index": 3567.08
     }
   },
@@ -153,7 +157,7 @@
     }
   ],
   "meta": {
-    "updated": "2026-11-27T21:47:21.670042",
+    "updated": "2026-11-28T08:38:57.915017",
     "source": "Rates Monitor (GH Actions)"
   }
 }
